@@ -60,3 +60,44 @@ int main(){
       cout<<"~"<<endl;
     }
 }
+
+
+
+
+
+
+
+// or
+// #include <iostream>
+// #include <vector>
+// #include <climits>
+
+// using namespace std;
+
+// int secondLargestElement(const vector<int>& arr) {
+//     int largest = INT_MIN;
+//     int secondLargest = INT_MIN;
+
+//     for (int num : arr) {
+//         if (num > largest) {
+//             secondLargest = largest;
+//             largest = num;
+//         } else if (num > secondLargest && num < largest) {
+//             secondLargest = num;
+//         }
+//     }
+
+//     return (secondLargest == INT_MIN) ? -1 : secondLargest;
+// }
+
+// int main() {
+//     vector<int> arr1 = {12, 35, 1, 10, 34, 1};
+//     vector<int> arr2 = {10, 5, 10};
+//     vector<int> arr3 = {10, 10, 10};
+
+//     cout << "Second largest in arr1: " << secondLargestElement(arr1) << endl; 
+//     cout << "Second largest in arr2: " << secondLargestElement(arr2) << endl; 
+//     cout << "Second largest in arr3: " << secondLargestElement(arr3) << endl; 
+
+//     return 0;
+// }
