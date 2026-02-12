@@ -1,0 +1,21 @@
+class Solution {
+public:
+    int addDigits(int num) {
+        int n=num;
+        int digit;
+        int sum=0;
+        if(num==0){
+            return 0;
+        }
+        while(n!=0 || sum>=10){
+              if (n == 0) {
+                n = sum;
+                sum = 0;
+            }
+            digit=n%10;
+            n=n/10;
+            sum=sum+digit;
+        }
+        return sum;
+    }
+}; 
