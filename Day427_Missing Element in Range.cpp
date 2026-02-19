@@ -1,0 +1,13 @@
+class Solution
+{
+public:
+    vector<int> missinRange(vector<int> &arr, int low, int high)
+    {
+        vector<int> result;
+        unordered_set<int> st(arr.begin(), arr.end());
+        for (int i = low; i <= high; i++)
+            if (!st.count(i))
+                result.push_back(i);
+        return result;
+    }
+};
