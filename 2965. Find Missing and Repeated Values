@@ -1,0 +1,29 @@
+class Solution {
+public:
+    vector<int> findMissingAndRepeatedValues(vector<vector<int>>& grid) {
+        long long x,y;
+        long long sum=0,sum2=0;
+        long long rows = grid.size();
+        long long cols = grid[0].size();
+
+        for (long long k = 0; k < rows * cols; k++) {
+                 long long i = k / cols;
+              long long j = k % cols;
+                sum+=grid[i][j];
+                sum2+=(grid[i][j]*grid[i][j]);
+        }
+        long long n=rows*cols;
+        x=n*(n+1)/2;
+        y=(n*(n+1)*(2*n+1))/6;
+        long long s=sum-x;
+        long long s1=sum2-y;
+        s1=s1/s;
+        x=(s+s1)/2;
+        y=x-s;
+        vector<int> ans(2);
+        ans[0]=x;
+        ans[1]=y;
+        return ans;
+      
+    }
+};
