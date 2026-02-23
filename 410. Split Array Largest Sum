@@ -1,0 +1,50 @@
+class Solution {
+public:
+    int sum(vector<int>& nums){
+        int sum=0;
+        for(int i=0;i<nums.size();i++){
+            sum=sum+nums[i];
+        }
+        return sum;
+    }
+    bool isvalid(vector<int>& nums,int mid,int k){
+        int st=1;
+        int page=0;
+        int n=nums.size()-1;
+        for(int i=0;i<=n;i++){
+             if(nums[i]>mid){
+            return false;
+        }
+        if((page+nums[i])<=mid){
+            page=page+nums[i];
+        }else{
+            st++;
+            page=nums[i];
+        }
+        }
+       
+        if(st>k){
+            return false;
+        }else{
+            return true;
+        }
+    }
+    int splitArray(vector<int>& nums, int k) {
+        int min=0;
+        int max=sum(nums);
+        int ans=-1;
+        int s=min;
+        int e=max;
+        while(s<=e){
+            int mid=s+(e-s)/2;
+            if(isvalid(nums,mid,k)){
+                ans=mid;
+                e=mid-1;
+            }else{
+                s=mid+1;
+            }
+        }
+
+     return ans;   
+    }
+};
