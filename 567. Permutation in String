@@ -1,0 +1,32 @@
+class Solution {
+public:
+    bool chec(int windfre[],int freq[]){
+        for(int j=0;j<26;j++){
+            if(windfre[j]!=freq[j]){
+                return false;
+            }
+        }
+        return true;
+    }
+    bool checkInclusion(string s1, string s2) {
+       int freq[26]={0};
+        for(int i=0;i<s1.size();i++){
+            freq[s1[i]-'a']++;
+        }
+        int winds=s1.size();
+        for(int i=0;i<s2.size();i++){
+            int windfre[26]={0};
+            int idx=i;
+            int wini=0;
+            while(wini<winds && idx<s2.size()){
+                windfre[s2[idx]-'a']++;
+                idx++;
+                wini++;
+            }
+                if(chec(windfre,freq)){
+                   return true; 
+                }
+        }
+        return false;
+    }
+};
